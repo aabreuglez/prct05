@@ -8,6 +8,7 @@ class TestFraccionario < Test::Unit::TestCase
     end
     
     def test_simple
-        assert_equal("(1/2)"),@uno.to_s)
-        assert_equal("(3/9)"),@dos.to_s)
+        assert_equal("(1/2)",@uno.to_s)
+        assert_equal("(3/9)",@dos.to_s)
     end
+end
