@@ -28,5 +28,6 @@ class Fraccionario
             end
        end
        Fraccionario.new(x,y)
+       #Concatenamos el metodo to s
     end
 end
