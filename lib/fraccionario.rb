@@ -44,4 +44,8 @@ class Fraccionario
     def -(other)
        Fraccionario.new((@a * (@b.lcm(other.b)/@b)) - (other.a * (@b.lcm(other.b)/other.b)) , @b.lcm(other.b)) 
     end
+    
+    def *(other)
+        Fraccionario.new( (@a * other.a) , (@b * other.b) )
+    end
 end
