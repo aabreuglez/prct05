@@ -48,4 +48,8 @@ class Fraccionario
     def *(other)
         Fraccionario.new( (@a * other.a) , (@b * other.b) )
     end
+    
+    def /(other)
+        Fraccionario.new( (@a * other.b), (@b * other.a) )
+    end
 end

@@ -23,6 +23,8 @@ class TestFraccionario < Test::Unit::TestCase
         assert_equal("(-1/6)",(@dos-@uno).simply.to_s)
         assert_equal("(1/4)",(@uno*@tres).simply.to_s)
         assert_equal("(1/6)",(@uno*@dos).simply.to_s)
+        assert_equal("(3/2)",(@uno/@dos).simply.to_s)
+        assert_equal("(1/1)",(@uno/@tres).simply.to_s)
     end
     
     def test_type_check
