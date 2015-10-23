@@ -18,11 +18,11 @@ class Fraccionario
        x=@a
        y=@b
        while (!terminar)
-            (x < y) ? i = a : i = b
+            (x.abs < y.abs) ? i = a : i = b
             terminar=true
             simplified=false
             j=2 #Obviously 0 is and error and 1 always has mod 0
-            while j <= i and !simplified
+            while j <= i.abs and !simplified
                 if ( (x % j == 0) and (y % j == 0) )
                     x=x/j
                     y=y/j
