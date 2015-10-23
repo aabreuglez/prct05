@@ -32,6 +32,7 @@ class Fraccionario
     end
     
     def +(other)
-        Fraccionario.new((@a * other.b) + (other.a * @b) , @b * other.b)
+        #There is a .lcm method on integer for calculate the MCM
+        Fraccionario.new((@a * (@b.lcm(other.b)/@b)) + (other.a * (@b.lcm(other.b)/other.b)) , @b.lcm(other.b))
     end
 end
