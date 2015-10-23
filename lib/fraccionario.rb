@@ -1,6 +1,9 @@
 class Fraccionario
     attr_reader :a, :b
     def initialize (a, b)
+        if( !a.is_a? Integer or !b.is_a? Integer) 
+            raise
+        end
         @a, @b = a, b
     end
     
