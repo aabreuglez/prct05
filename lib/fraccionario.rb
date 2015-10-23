@@ -4,6 +4,7 @@ class Fraccionario
         if( !a.is_a? Integer or !b.is_a? Integer) 
             raise
         end
+        raise unless b!=0
         @a, @b = a, b
     end
     
@@ -19,6 +20,7 @@ class Fraccionario
        while (!terminar)
             (x < y) ? i = a : i = b
             terminar=true
+            simplified=false
             j=2 #Obviously 0 is and error and 1 always has mod 0
             while j <= i and !simplified
                 if ( (x % j == 0) and (y % j == 0) )
@@ -37,5 +39,9 @@ class Fraccionario
     def +(other)
         #There is a .lcm method on integer for calculate the MCM
         Fraccionario.new((@a * (@b.lcm(other.b)/@b)) + (other.a * (@b.lcm(other.b)/other.b)) , @b.lcm(other.b))
+    end
+    
+    def -(other)
+       Fraccionario.new((@a * (@b.lcm(other.b)/@b)) - (other.a * (@b.lcm(other.b)/other.b)) , @b.lcm(other.b)) 
     end
 end

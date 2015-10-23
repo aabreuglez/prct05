@@ -18,9 +18,15 @@ class TestFraccionario < Test::Unit::TestCase
         assert_equal("(1/3)",@dos.simply.to_s)
         assert_equal("(15/18)",(@uno+@dos).to_s)
         assert_equal("(4/4)",(@uno+@tres).to_s)
+        assert_equal("(0/4)",(@uno-@tres).to_s)
+        assert_equal("(1/6)",(@tres-@dos).simply.to_s)
     end
     
     def test_type_check
         assert_raise(RuntimeError) {Fraccionario.new('1','1')}
+    end
+    
+    def test_invalid_div
+        assert_raise(RuntimeError) {Fraccionario.new(1,0)}
     end
 end
