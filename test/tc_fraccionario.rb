@@ -29,6 +29,9 @@ class TestFraccionario < Test::Unit::TestCase
     
     def test_type_check
         assert_raise(RuntimeError) {Fraccionario.new('1','1')}
+        assert_raise(RuntimeError) {Fraccionario.new(1,'1')}
+        assert_raise(RuntimeError) {Fraccionario.new('1',1)}
+        assert_raise(RuntimeError) {Fraccionario.new(1,1.to_s)}
     end
     
     def test_invalid_div
