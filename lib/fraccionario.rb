@@ -30,4 +30,8 @@ class Fraccionario
        Fraccionario.new(x,y)
        #Concatenamos el metodo to s
     end
+    
+    def +(other)
+        Fraccionario.new((@a * other.b) + (other.a * @b) , @b * other.b)
+    end
 end
