@@ -37,4 +37,8 @@ class TestFraccionario < Test::Unit::TestCase
     def test_invalid_div
         assert_raise(RuntimeError) {Fraccionario.new(1,0)}
     end
+    
+    def test_failure
+        assert_equal("(3/9)",@uno.to_s)
+    end
 end
