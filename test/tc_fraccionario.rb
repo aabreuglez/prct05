@@ -13,18 +13,18 @@ class TestFraccionario < Test::Unit::TestCase
     end
   
     def test_simple
-        assert_equal("(1/2)",@uno.to_s)
-        assert_equal("(3/9)",@dos.to_s)
-        assert_equal("(1/3)",@dos.simply.to_s)
-        assert_equal("(15/18)",(@uno+@dos).to_s)
-        assert_equal("(4/4)",(@uno+@tres).to_s)
-        assert_equal("(0/4)",(@uno-@tres).to_s)
-        assert_equal("(1/6)",(@tres-@dos).simply.to_s)
-        assert_equal("(-1/6)",(@dos-@uno).simply.to_s)
-        assert_equal("(1/4)",(@uno*@tres).simply.to_s)
-        assert_equal("(1/6)",(@uno*@dos).simply.to_s)
-        assert_equal("(3/2)",(@uno/@dos).simply.to_s)
-        assert_equal("(1/1)",(@uno/@tres).simply.to_s)
+        assert_equal("(1/2)", @uno.to_s)
+        assert_equal("(3/9)", @dos.to_s)
+        assert_equal("(1/3)", @dos.simply.to_s)
+        assert_equal("(15/18)", (@uno+@dos).to_s)
+        assert_equal("(4/4)", (@uno+@tres).to_s)
+        assert_equal("(0/4)", (@uno-@tres).to_s)
+        assert_equal("(1/6)", (@tres-@dos).simply.to_s)
+        assert_equal("(-1/6)", (@dos-@uno).simply.to_s)
+        assert_equal("(1/4)", (@uno*@tres).simply.to_s)
+        assert_equal("(1/6)", (@uno*@dos).simply.to_s)
+        assert_equal("(3/2)", (@uno/@dos).simply.to_s)
+        assert_equal("(1/1)", (@uno/@tres).simply.to_s)
     end
     
     def test_type_check
@@ -39,6 +39,6 @@ class TestFraccionario < Test::Unit::TestCase
     end
     
     def test_failure
-        assert_equal("(3/9)",@uno.to_s)
+        assert_equal("(3/9)", @uno.to_s)
     end
 end
