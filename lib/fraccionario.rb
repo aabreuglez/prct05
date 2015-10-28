@@ -15,28 +15,21 @@ class Fraccionario
   end
   
   def simply
-    terminar = false #This bool will tell us when we can't simplify more
-    simplified = false #This bool will help us to restart the loop of simplifying
+    gcd = 1
     x = @a
     y = @b
+    j = 2 #0 is an error and 1 always has mod 0
     
-    while !terminar
-      (x.abs < y.abs) ? i = a : i = b #Use abs value because 1 may be negative!
-      terminar = true 
-      simplified = false
-      j = 2 #0 is an error and 1 always has mod 0
-      while j <= i.abs and !simplified 
-        if ((x % j == 0) and (y % j == 0))
-          x = x / j
-          y = y / j
-          #We should restart everytime we simplified because f.e 18 can be divide by three multiple times
-          simplified = true
-          terminar = false
-        end
-        j += 1
+    (x.abs < y.abs) ? i = x.abs : i = y.abs #Use abs value because 1 may be negative!
+    
+    while j <= i
+      if ((x % j == 0) and (y % j == 0))
+        gcd = j
       end
+      j += 1
     end
-    
+      x = x / gcd
+      y = y / gcd
     Fraccionario.new(x,y)
   end
   
