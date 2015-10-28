@@ -32,6 +32,10 @@ class TestFraccionario < Test::Unit::TestCase
         assert_raise(RuntimeError) {Fraccionario.new(1,'1')}
         assert_raise(RuntimeError) {Fraccionario.new('1',1)}
         assert_raise(RuntimeError) {Fraccionario.new(1,1.to_s)}
+        assert_raise(RuntimeError) {Fraccionario.new(1,1)+1}
+        assert_raise(RuntimeError) {Fraccionario.new(2,2)-'a'}
+        assert_raise(RuntimeError) {Fraccionario.new(3,3)/Array.new()}
+        assert_raise(RuntimeError) {Fraccionario.new(3,3)*{}}
     end
     
     def test_invalid_div
