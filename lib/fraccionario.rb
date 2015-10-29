@@ -1,14 +1,22 @@
 class Fraccionario
   attr_reader :a, :b
-  def initialize (a, b)
+  def initialize (*args)
     
-    #Type check
-    raise unless a.is_a? Integer and b.is_a? Integer
-    #Avoid 0 division
-    raise unless b != 0
+    if args.length == 1
+      raise unless args[0].is_a? Integer
+      @a, @b = args[0], 1  
+      
+    elsif args.length == 2
     
-    @a, @b = a, b
+      raise unless args[0].is_a? Integer and args[1].is_a? Integer #Type check
+      raise unless args[1] != 0 #Avoid 0 division
+      @a, @b = args[0], args[1]
+    else
+      raise
+    end
+    
   end
+  
   
   def to_s
     "(#{@a}/#{@b})"
