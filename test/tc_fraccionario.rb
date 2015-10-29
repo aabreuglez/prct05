@@ -27,6 +27,11 @@ class TestFraccionario < Test::Unit::TestCase
         assert_equal("(1/1)", (@uno/@tres).simply.to_s)
     end
     
+    def test_integers
+        assert_equal("(4/1)", Fraccionario.new(4).to_s)
+        assert_equal("(2/1)", Fraccionario.new(2).to_s)
+    end
+    
     def test_type_check
         assert_raise(RuntimeError) {Fraccionario.new('1','1')}
         assert_raise(RuntimeError) {Fraccionario.new(1,'1')}
