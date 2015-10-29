@@ -43,22 +43,39 @@ class Fraccionario
   
   def +(other)
     #There is a method on Integer class for calculating the MCM .lcm
-    raise unless other.is_a? Fraccionario
-    Fraccionario.new((@a * (@b.lcm(other.b)/@b)) + (other.a * (@b.lcm(other.b)/other.b)) , @b.lcm(other.b))
+    raise unless other.is_a? Fraccionario or other.is_a? Integer
+    if other.is_a? Fraccionario
+      Fraccionario.new((@a * (@b.lcm(other.b)/@b)) + (other.a * (@b.lcm(other.b)/other.b)) , @b.lcm(other.b))
+    else
+      Fraccionario.new((@a + other*@b), @b)
+    end
   end
   
   def -(other)
-    raise unless other.is_a? Fraccionario
-    Fraccionario.new((@a * (@b.lcm(other.b)/@b)) - (other.a * (@b.lcm(other.b)/other.b)) , @b.lcm(other.b)) 
+    raise unless other.is_a? Fraccionario or other.is_a? Integer
+    if other.is_a? Fraccionario
+      Fraccionario.new((@a * (@b.lcm(other.b)/@b)) - (other.a * (@b.lcm(other.b)/other.b)) , @b.lcm(other.b)) 
+    else
+      Fraccionario.new((@a - other*@b), @b)
+    end
   end
   
   def *(other)
-    raise unless other.is_a? Fraccionario
-    Fraccionario.new( (@a * other.a) , (@b * other.b) )
+    raise unless other.is_a? Fraccionario or other.is_a? Integer
+    if other.is_a? Fraccionario
+      Fraccionario.new( (@a * other.a) , (@b * other.b) )
+    else
+      Fraccionario.new( (@a * a) , @b)
+    end
   end
   
   def /(other)
-    raise unless other.is_a? Fraccionario
-    Fraccionario.new( (@a * other.b), (@b * other.a) )
+    raise unless other.is_a? Fraccionario or (other.is_a? Integer and other != 0)
+    if other.is_a? Fraccionario
+      Fraccionario.new( (@a * other.b), (@b * other.a) )
+      
+    else
+      Fraccionario.new( @a, @b * other)
+    end
   end
 end

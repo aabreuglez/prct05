@@ -30,6 +30,10 @@ class TestFraccionario < Test::Unit::TestCase
     def test_integers
         assert_equal("(4/1)", Fraccionario.new(4).to_s)
         assert_equal("(2/1)", Fraccionario.new(2).to_s)
+        assert_equal("(3/2)", (@uno+1).to_s)
+        assert_equal("(4/4)", (@tres*2).to_s)
+        assert_equal("(-1/2)", (@uno-1).to_s)
+        assert_equal("(3/18)", (@dos/2).to_s)
     end
     
     def test_type_check
@@ -37,7 +41,7 @@ class TestFraccionario < Test::Unit::TestCase
         assert_raise(RuntimeError) {Fraccionario.new(1,'1')}
         assert_raise(RuntimeError) {Fraccionario.new('1',1)}
         assert_raise(RuntimeError) {Fraccionario.new(1,1.to_s)}
-        assert_raise(RuntimeError) {Fraccionario.new(1,1)+1}
+        assert_raise(RuntimeError) {Fraccionario.new(1,1)+'a'}
         assert_raise(RuntimeError) {Fraccionario.new(2,2)-'a'}
         assert_raise(RuntimeError) {Fraccionario.new(3,3)/Array.new()}
         assert_raise(RuntimeError) {Fraccionario.new(3,3)*{}}
@@ -45,6 +49,7 @@ class TestFraccionario < Test::Unit::TestCase
     
     def test_invalid_div
         assert_raise(RuntimeError) {Fraccionario.new(1,0)}
+        assert_raise(RuntimeError) {@uno/0}
     end
     
     def test_failure
